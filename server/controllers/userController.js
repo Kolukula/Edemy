@@ -8,7 +8,9 @@ import { CourseProgress } from "../models/CourseProgress.js"
 export const getUserData = async(req,res)=>{
     try {
         const userId = req.auth.userId
+        console.log("UserId from auth:", userId);
         const user = await User.findById(userId)
+        console.log("User data from db:", user);
         if(!user){
             res.json({success: false, message:"User not found!"})
         }
